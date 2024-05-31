@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+	<div class="header">
+		<a href="./index.html" class="logo">Title Of Project</a>
+	</div>
+
+	<div data-barba="wrapper">
+		<div data-barba="container" data-barba-namespace="home">
+			<div asscroll-container>
+				<div class="scroll-wrap">
+					<!-- BEGIN content -->
+					<div class="content">
+						<!-- BEGIN item -->
+						<a href="./inside.html" class="item">
+							<img src="./imgs/texture.jpg" class="js-image" alt="" />
+							<h2>Some title</h2>
+							<p>And some very interesting description.</p>
+						</a>
+						<!-- END item -->
+						<!-- BEGIN item -->
+						<a href="./inside.html" class="item">
+							<img src="./imgs/texture.jpg" class="js-image" alt="" />
+							<h2>Some title</h2>
+							<p>And some very interesting description.</p>
+						</a>
+						<!-- END item -->
+						<!-- BEGIN item -->
+						<a href="./inside.html" class="item">
+							<img src="./imgs/texture.jpg" class="js-image" alt="" />
+							<h2>Some title</h2>
+							<p>And some very interesting description.</p>
+						</a>
+						<!-- END item -->
+						<!-- BEGIN item -->
+						<a href="./inside.html" class="item">
+							<img src="./imgs/texture.jpg" class="js-image" alt="" />
+							<h2>Some title</h2>
+							<p>And some very interesting description.</p>
+						</a>
+						<!-- END item -->
+						<!-- BEGIN item -->
+						<a href="./inside.html" class="item">
+							<img src="./imgs/texture.jpg" class="js-image" alt="" />
+							<h2>Some title</h2>
+							<p>And some very interesting description.</p>
+						</a>
+						<!-- END item -->
+					</div>
+					<!-- END content -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end barba -->
+
+	<div class="curtain"></div>
+	<div id="container"></div>
+
+	<!-- Vertex Shader -->
+	<!-- <script id="vertex-shader" type="x-shader/x-vertex">
+      uniform float time;
+      uniform float uProgress;
+      uniform vec2 uResolution;
+      uniform vec2 uQuadSize;
+      uniform vec4 uCorners;
+
+      varying vec2 vSize;
+      varying vec2 vUv;
+
+      void main() {
+      	float PI = 3.1415926;
+      	vUv = uv;
+      	float sine = sin(PI * uProgress);
+      	float waves = sine * 0.1 * sin(5.0 * length(uv) + 15.0 * uProgress);
+      	vec4 defaultState = modelMatrix * vec4(position, 1.0);
+      	vec4 fullScreenState = vec4(position, 1.0);
+      	fullScreenState.x *= uResolution.x;
+      	fullScreenState.y *= uResolution.y;
+      	fullScreenState.z += uCorners.x;
+      	float cornersProgress = mix(
+      		mix(uCorners.z, uCorners.w, uv.x),
+      		mix(uCorners.x, uCorners.y, uv.x),
+      		uv.y
+      	);
+
+      	vec4 finalState = mix(defaultState, fullScreenState, cornersProgress);
+
+      	vSize = mix(uQuadSize, uResolution, cornersProgress);
+
+      	gl_Position = projectionMatrix * viewMatrix * finalState;
+      }
+    </script> -->
+
+	<!-- Fragment Shader -->
+	<!-- <script id="fragment-shader" type="x-shader/x-fragment">
+      uniform float time;
+      uniform float uProgress;
+      uniform vec2 uTextureSize;
+      uniform sampler2D uTexture;
+      varying vec2 vUv;
+
+      varying vec2 vSize;
+
+      vec2 getUV(vec2 uv, vec2 textureSize, vec2 quadSize) {
+      	vec2 tempUV = uv - vec2(0.5);
+
+      	float quadAspect = quadSize.x / quadSize.y;
+      	float textureAspect = textureSize.x / textureSize.y;
+      	if (quadAspect < textureAspect) {
+      		tempUV = tempUV * vec2(quadAspect / textureAspect, 1.0);
+      	} else {
+      		tempUV = tempUV * vec2(1.0, textureAspect / quadAspect);
+      	}
+
+      	tempUV += vec2(0.5);
+      	return tempUV;
+      }
+
+      void main() {
+      	vec2 correctUV = getUV(vUv, uTextureSize, vSize);
+      	vec4 image = texture2D(uTexture, correctUV);
+      	gl_FragColor = vec4(vUv, 0.0, 1.0);
+      	gl_FragColor = image;
+      }
+    </script> -->
+
+	<script type="module" src="./app.js"></script>
+</body>
+
+</html>
